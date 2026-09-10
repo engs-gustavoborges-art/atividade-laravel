@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlunoController;
 
 Route::get('/sobre', function () {
     return 'Página Sobre';
@@ -25,3 +26,17 @@ Route::get('/categoria/{id}', function ($id) {
 Route::get('/usuario/{id}', function ($id) {
     return 'Usuário: ' . $id;
 });
+
+Route::get('/alunos', [AlunoController::class, 'index']);
+
+Route::get('/alunos/{id}', [AlunoController::class, 'show']);
+
+Route::get('/alunos/create', [AlunoController::class, 'create']);
+
+Route::post('/alunos', [AlunoController::class, 'store']);
+
+Route::get('/alunos/{id}/edit', [AlunoController::class, 'edit']);
+
+Route::put('/alunos/{id}', [AlunoController::class, 'update']);
+
+Route::delete('/alunos/{id}', [AlunoController::class, 'destroy']);
